@@ -1,4 +1,4 @@
 # ZtmCourse_Django
-Zero To Mastery Academy  
+Zero to Mastery Academy  
 Django Course  
 Material and Projects
