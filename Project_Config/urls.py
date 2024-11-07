@@ -22,5 +22,5 @@ from S03_UrlsViews.views import index, about
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", index),
-    path("about", about),
+    path("about/", about),
 ]
