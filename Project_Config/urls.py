@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 
 from S03_UrlsViews.views import index, about, hello, add
-from S04_MoviesApp.views import movies_index
+from S04_MoviesApp.views import movies_index, movies_about
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +29,5 @@ urlpatterns = [
     path("add/<int:num1>/<int:num2>/", add),
 
     path("movies/", movies_index),
+    path("movies/about/", movies_about),
 ]
