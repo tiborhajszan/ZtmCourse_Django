@@ -28,6 +28,6 @@ urlpatterns = [
     path("hello/<str:first_name>/", hello),
     path("add/<int:num1>/<int:num2>/", add),
 
-    path("movies/", movies_index),
-    path("movies/about/", movies_about),
+    path("movies/", movies_index, name="movies-home"),
+    path("movies/about/", movies_about, name="movies-about"),
 ]

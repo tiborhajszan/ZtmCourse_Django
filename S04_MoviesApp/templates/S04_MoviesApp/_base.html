@@ -1,0 +1,12 @@
+<html>
+    <body>
+        <div>
+            <a href="{% url "movies-home" %}">My Favorite Movies</a>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="{% url "movies-about" %}">About Me</a>
+        </div>
+        <div>
+            {% block content %}{% endblock content %}
+        </div>
+    </body>
+</html>
