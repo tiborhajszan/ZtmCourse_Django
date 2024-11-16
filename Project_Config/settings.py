@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     ### local apps
     "S03_UrlsViews",
     "S04_MoviesApp",
+    "S05_JobsBoardApp",
 ]
 
 MIDDLEWARE = [

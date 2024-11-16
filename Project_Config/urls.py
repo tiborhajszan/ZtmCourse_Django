@@ -19,6 +19,7 @@ from django.urls import path
 
 from S03_UrlsViews.views import index, about, hello, add
 from S04_MoviesApp.views import movies_index, movies_about
+from S05_JobsBoardApp.views import jobs_index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,4 +31,6 @@ urlpatterns = [
 
     path("movies/", movies_index, name="movies-home"),
     path("movies/about/", movies_about, name="movies-about"),
+
+    path("jobs/", jobs_index, name="jobs-home"),
 ]
