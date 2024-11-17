@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    ### humanize filters
+    "django.contrib.humanize",
     ### local apps
     "S03_UrlsViews",
     "S04_MoviesApp",

@@ -1,8 +1,10 @@
+{% load humanize %}
+
 <html>
     <body>
         <ul>
             {% for job in active_jobs %}
-                <li>{{ job.title }} | {{ job.description }} | ${{ job.salary }}</job></li>
+                <li>{{ job.title|title }} | {{ job.description }} | ${{ job.salary|intcomma }}</li>
             {% endfor %}
         </ul>
     </body>
