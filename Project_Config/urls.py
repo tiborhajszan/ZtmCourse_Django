@@ -19,7 +19,7 @@ from django.urls import path
 
 from S03_UrlsViews.views import index, about, hello, add
 from S04_MoviesApp.views import movies_index, movies_about
-from S05_JobsBoardApp.views import jobs_index
+from S05_JobsBoardApp.views import jobs_index, jobs_detail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,5 +32,6 @@ urlpatterns = [
     path("movies/", movies_index, name="movies-home"),
     path("movies/about/", movies_about, name="movies-about"),
 
-    path("jobs/", jobs_index, name="jobs-home"),
+    path(route="jobs/", view=jobs_index, name="jobs-home"),
+    path(route="jobs/<int:job_id>/", view=jobs_detail, name="jobs-detail"),
 ]
