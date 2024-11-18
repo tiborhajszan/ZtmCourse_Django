@@ -1,12 +1,26 @@
-<html>
-    <body>
-        <ul>
-            <li>{{ job.title }}</li>
-            <li>{{ job.company }}</li>
-            <li>${{ job.salary }}</li>
-            <li>Active? {{ job.is_active }}</li>
-            <hr>
-            <li>{{ job.description }}</li>
-        </ul>
-    </body>
-</html>
+
+{# detail page template for jobs board #}
+
+{# using _base.html as base template #}
+{% extends 'S05_JobsBoardApp/_base.html' %}
+{# loading humanize filter library #}
+{% load humanize %}
+
+{# override content #}
+{% block content %}
+
+{# job details container #}
+<div class="w-10/12 mx-auto">
+    {# job details #}
+    <h1 class="pb-8 text-2xl font-semibold underline underline-offset-8">{{ job.title|title }}</h1>
+    <p class="pb-2 text-xl">Company: {{ job.company|title }}</p>
+    <p class="pb-2 font-semibold">Salary: ${{ job.salary|intcomma }}</p>
+    <p class="mb-8">Description:<br>{{ job.description }}</p>
+    {# backlink to jobs board home page #}
+    <a class="border rounded-xl border-gray-400 px-4 pb-2.5 pt-2 hover:bg-gray-200" href="{% url 'jobs-home' %}">
+        Go Back
+    </a>
+</div>
+
+{# override content ends #}
+{% endblock content %}

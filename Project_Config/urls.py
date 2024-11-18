@@ -31,7 +31,7 @@ urlpatterns = [
 
     path("movies/", movies_index, name="movies-home"),
     path("movies/about/", movies_about, name="movies-about"),
-
+    ### jobs board urls
     path(route="jobs/", view=jobs_index, name="jobs-home"),
     path(route="jobs/<int:job_id>/", view=jobs_detail, name="jobs-detail"),
 ]
