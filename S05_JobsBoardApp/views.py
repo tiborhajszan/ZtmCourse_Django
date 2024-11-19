@@ -3,23 +3,24 @@
 from django.shortcuts import render, get_object_or_404
 from .models import JobPosting
 
-### home page view
+### home page view function
 def jobs_index(request):
     """
-    Renders the home page of the Jobs Board, with all active job postings.
+    Renders the home page of Jobs Board, showing all active job postings.
 
     Args:
     - request: request object
 
     Returns:
-    - rendered view of the home page
+    - rendered view of home page
     """
 
+    # retrieving active job postings from database
     active_jobs = JobPosting.objects.filter(is_active=True)
-    context = {"active_jobs": active_jobs}
-    return render(request=request, template_name="S05_JobsBoardApp/index.html", context=context)
+    # rendering home page with active job postings
+    return render(request=request, template_name="S05_JobsBoardApp/index.html", context={"active_jobs": active_jobs})
 
-### detail page view
+### detail page view function
 def jobs_detail(request, job_id):
     """
     Renders the detail page of a job posting, if the posting is active.
@@ -29,9 +30,10 @@ def jobs_detail(request, job_id):
     - job_id: int, id of job posting to be rendered
 
     Returns:
-    - rendered view of the detail page
+    - rendered view of detail page
     """
 
+    # retrieving job posting with given id | 404 error if job posting is inactive or not found
     job = get_object_or_404(JobPosting, id=job_id, is_active=True)
-    context = {"job": job}
-    return render(request=request, template_name="S05_JobsBoardApp/detail.html", context=context)
+    # rendering detail page of job posting
+    return render(request=request, template_name="S05_JobsBoardApp/detail.html", context={"job": job})

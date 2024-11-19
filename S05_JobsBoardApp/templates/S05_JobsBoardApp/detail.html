@@ -1,26 +1,21 @@
 
-{# detail page template for jobs board #}
+{# detail page template for jobs board web application #}
 
-{# using _base.html as base template #}
+{# importing base template, loading humanize filter library #}
 {% extends 'S05_JobsBoardApp/_base.html' %}
-{# loading humanize filter library #}
 {% load humanize %}
 
-{# override content #}
+{# override block, job details container #}
 {% block content %}
-
-{# job details container #}
-<div class="w-10/12 mx-auto">
+<div class="mt-6 mx-auto">
     {# job details #}
-    <h1 class="pb-8 text-2xl font-semibold underline underline-offset-8">{{ job.title|title }}</h1>
-    <p class="pb-2 text-xl">Company: {{ job.company|title }}</p>
-    <p class="pb-2 font-semibold">Salary: ${{ job.salary|intcomma }}</p>
-    <p class="mb-8">Description:<br>{{ job.description }}</p>
+    <h2 class="text-2xl font-semibold underline underline-offset-8 pb-7">{{ job.title|title }}</h2>
+    <p class="text-xl pb-2">Company: {{ job.company|title }}</p>
+    <p class="font-semibold pb-2">Salary: ${{ job.salary|intcomma }}</p>
+    <p class="pb-8">Description:<br>{{ job.description }}</p>
     {# backlink to jobs board home page #}
-    <a class="border rounded-xl border-gray-400 px-4 pb-2.5 pt-2 hover:bg-gray-200" href="{% url 'jobs-home' %}">
+    <a class="border rounded-xl border-gray-400 pt-2 px-4 hover:bg-gray-200 pb-2.5" href="{% url 'jobs-home' %}">
         Go Back
     </a>
 </div>
-
-{# override content ends #}
 {% endblock content %}

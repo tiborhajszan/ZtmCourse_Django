@@ -1,29 +1,27 @@
 
-{# home page template for jobs board #}
+{# home page template for jobs board web application #}
 
-{# using _base.html as base template #}
+{# importing base template, loading humanize filter library #}
 {% extends "S05_JobsBoardApp/_base.html" %}
-{# loading humanize filter library #}
 {% load humanize %}
 
-{# override content #}
+{# override block, job posting container #}
 {% block content %}
-
-{# job posting container #}
-<div class="flex w-10/12 mx-auto justify-center gap-6 flex-wrap">
+<div class="flex mt-9 mx-auto gap-6 justify-left flex-wrap">
     {# iterating over active job postings #}
     {% for job in active_jobs %}
-        {# link to detail page + job details container #}
-        <a class="w-1/4 text-center" href="{% url 'jobs-detail' job.id %}">
-        <div class="border rounded-xl px-8 py-10 bg-gray-50 hover:bg-gray-100 hover:cursor-pointer">
-            <p class="pb-2 text-2xl">{{ job.title|title }}</p>
-            <hr class="pb-2">
-            <p class="pb-2 font-semibold">Company: {{ job.company|title }}</p>
-            <p class="pb-2">Salary: ${{ job.salary|intcomma }}</p>
-            <p class="underline underline-offset-2 text-blue-500 hover:text-blue-400">View Details</p>
+        {# link to detail page as job details container #}
+        <a class="w-1/4" href="{% url 'jobs-detail' job.id %}">
+        <div class="border rounded-xl pt-8 px-8 bg-gray-100 hover:bg-gray-200 hover:cursor-pointer text-center pb-10">
+            {# job details #}
+            <h2 class="text-2xl pb-4">{{ job.title|title }}</h2>
+            <hr class="border-gray-400 pb-4">
+            <p class="text-xl pb-2">Company: {{ job.company|title }}</p>
+            <p class="font-semibold pb-2">Salary: ${{ job.salary|intcomma }}</p>
+            {# link to detail page #}
+            <span class="underline underline-offset-2 text-blue-500 hover:text-blue-300">View Details</span>
         </div>
         </a>
     {% endfor %}
 </div>
-
 {% endblock content %}

@@ -1,34 +1,37 @@
 
+{# base template for jobs board web application #}
+
+{# DOCTYPE declaration, webpage language #}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    {# webpage title #}
     <title>Jobs Board</title>
+    {# character encoding, internet explorer compatibility, initial zoom level #}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {# importing tailwind css #}
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
 
-    <!-- navigation bar at top of page -->
-    <div class="mb-8">
-        <!-- link to home page -->
-        <h1 class="pl-8 py-8 text-4xl">
-            <a href="{% url 'jobs-home' %}">🗃️ Jobs Board</a>
+    {# navigation header container #}
+    <div class="border-b border-gray-400">
+        {# link to home page as jobs board title #}
+        <h1 class="pt-6 pl-8 text-4xl pb-7">
+        <a href="{% url 'jobs-home' %}">🗃️ Jobs Board</a>
         </h1>
-        <!-- horizontal separator -->
-        <hr>
     </div>
 
-    <!-- main container for page content -->
+    {# page content container #}
     <div class="container mx-auto">
-        <!-- content block to be overridden by child templates -->
+        {# override block #}
         {% block content %}
         {% endblock content %}
     </div>
-
 </body>
 
 </html>
