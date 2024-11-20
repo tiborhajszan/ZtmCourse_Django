@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "S03_UrlsViews",
     "S04_MoviesApp",
     "S05_JobsBoardApp",
+    "S07_LinksApp",
 ]
 
 MIDDLEWARE = [
