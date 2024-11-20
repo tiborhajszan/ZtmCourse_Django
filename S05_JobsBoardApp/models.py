@@ -36,4 +36,4 @@ class JobPosting(models.Model):
         Returns:
         - str, <id> | <title> | <company> | <Active/Inactive>
         """
-        return f"{self.id}: {self.title} | {self.company} | {'Active' if self.is_active else 'Inactive'}"
+        return f"{self.id}: {self.title} | {self.company} | {'active' if self.is_active else 'inactive'}"
