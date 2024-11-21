@@ -4,3 +4,9 @@
 {# ################################################################################################################## #}
 
 <h1>My Link Shortener Application</h1>
+<hr>
+<ul>
+    {% for link in links %}
+        <li>{{ link.name }} [{{ link.url }}] : {{ link.clicks }}</li>
+    {% endfor %}
+</ul>
