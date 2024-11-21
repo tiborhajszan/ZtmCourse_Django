@@ -25,9 +25,9 @@
 
         {# link actions #}
         <div class="flex items-center justify-between">
-            <p><a class="text-blue-700 underline" href="{% url "links-home" %}">{{ link.url }}</a></p>
+            <p class="text-blue-700 underline"><a href="{{ link.url }}" target="_blank">{{ link.url }}</a></p>
             <p class="text-blue-700 underline">
-                <a href="{% url 'links-home' %}" target="_blank">Open /{{ link.slug }} →</a>
+                <a href="{% url 'links-redirect' link.slug %}" target="_blank">Open : {{ link.slug }} →</a>
             </p>
         </div>
 
