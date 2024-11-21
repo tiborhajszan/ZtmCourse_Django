@@ -3,21 +3,38 @@
 {# Links Application :: Home Page Template #}
 {# ################################################################################################################## #}
 
+{# importing base template #}
 {% extends 'S07_LinksApp/_base.html' %}
+
+{# content block, links container #}
 {% block content %}
 <div class="sm:w-2/3 mx-auto px-10">
-    <h1 class="text-4xl mb-2">Links</h1>
+
+    {# webpage content title #}
+    <h1 class="mb-2 text-4xl">Links</h1>
+
+    {# iterating over links, link container #}
     {% for link in links %}
-    <div class="border rounded px-12 py-8 my-6 hover:bg-gray-50">
-        <div class="flex justify-between items-center pb-6">
-            <p class="text-2xl">{{link.name}}</p>
-            <p class="rounded-full bg-green-200 px-6 py-2">Clicks: {{link.clicks}}</p>
+    <div class="my-6 border rounded py-8 px-12 hover:bg-gray-50">
+
+        {# link details #}
+        <div class="flex pb-6 items-center justify-between">
+            <p class="text-2xl">{{ link.name }}</p>
+            <p class="py-2 px-6 rounded-full bg-green-200">Clicks: {{ link.clicks }}</p>
         </div>
-        <div class="flex justify-between items-center">
-            <p><a class="underline text-blue-700" href="{% url "links-home" %}">{{link.url}}</a></p>
-            <p class="underline underline text-blue-700"><a target="_blank" href="{% url 'links-home' %}">Open /{{link.slug}} →</a></p>
+
+        {# link actions #}
+        <div class="flex items-center justify-between">
+            <p><a class="text-blue-700 underline" href="{% url "links-home" %}">{{ link.url }}</a></p>
+            <p class="text-blue-700 underline">
+                <a href="{% url 'links-home' %}" target="_blank">Open /{{ link.slug }} →</a>
+            </p>
         </div>
+
+    {# end of link container, end of loop #}
     </div>
     {% endfor %}
+
+{# end of links container, end of content block #}
 </div>
 {% endblock content %}
