@@ -1,0 +1,60 @@
+{# ################################################################################################################## #}
+{# Django Bootcamp :: Section 07 #}
+{# Links Application :: Base Template #}
+{# ################################################################################################################## #}
+
+{# DOCTYPE declaration, webpage language #}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    {# webpage title #}
+    <title>Link.ly</title>
+    {# internet explorer compatibility, initial zoom level, character encoding #}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    {# importing tailwind css #}
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+
+    {# webpage header container #}
+    <header class="mb-8 border-b body-font text-gray-600">
+    <div class="container mx-auto flex py-5 px-10 items-center flex-col md:flex-row flex-wrap">
+
+        {# link to home page as link.ly title #}
+        <a href="{% url 'links-home' %}" class="flex mb-4 md:mb-0 items-center title-font font-medium text-gray-900">
+        <span class="text-xl">Link.ly</span>
+        </a>
+
+        {# navigation bar #}
+        <nav class="flex md:ml-4 md:mr-auto md:border-l md:border-gray-400 md:py-1 md:pl-4 items-center justify-center flex-wrap text-base">
+            <a href="{% url 'links-home' %}" class="mr-5 hover:text-gray-900">All Links</a>
+        </nav>
+
+        {# add link button #}
+        <a href="{% url 'links-home' %}">
+        <button class="inline-flex mt-4 md:mt-0 border-0 rounded focus:outline-none py-2 px-5 bg-blue-100 hover:bg-blue-200 items-center text-base">Add Link
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+            </svg>
+        </button>
+        </a>
+    
+    {# end of webpage header container #}
+    </div>
+    </header>
+
+    {# webpage content container, override block #}
+    <div>
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+</body>
+
+</html>
