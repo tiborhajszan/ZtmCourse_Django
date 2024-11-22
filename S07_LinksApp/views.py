@@ -5,6 +5,7 @@
 
 ### imports
 from django.shortcuts import get_object_or_404, render, redirect
+from django.urls import reverse
 from .models import Link
 from .forms import LinkForm
 
@@ -60,12 +61,13 @@ def links_create(request):
     if request.method == "POST":
         form = LinkForm(request.POST)
         if form.is_valid():
-            data = form.cleaned_data
+            form.save()
+            return redirect(reverse("links-home"))
         else:
+            form = LinkForm()
             data = "Form is not valid!"
-        form = LinkForm()
     else:
-        data = "Please submit data!"
         form = LinkForm()
+        data = "Please submit data!"
     # rendering and returning webform
     return render(request=request, template_name="S07_LinksApp/create.html", context={"form":form, "data":data})
