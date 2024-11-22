@@ -6,6 +6,7 @@
 ### imports
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import Link
+from .forms import LinkForm
 
 ### links app home page view function ##################################################################################
 def links_index(request):
@@ -56,7 +57,15 @@ def links_create(request):
     - links app create link form
     """
 
-    ### retrieving post data
-    data = request.POST
-    # rendering and returning links app create link form
-    return render(request=request, template_name="S07_LinksApp/create.html", context={"data":data})
+    if request.method == "POST":
+        form = LinkForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+        else:
+            data = "Form is not valid!"
+        form = LinkForm()
+    else:
+        data = "Please submit data!"
+        form = LinkForm()
+    # rendering and returning webform
+    return render(request=request, template_name="S07_LinksApp/create.html", context={"form":form, "data":data})
