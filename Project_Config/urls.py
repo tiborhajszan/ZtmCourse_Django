@@ -20,7 +20,7 @@ from django.urls import path
 from S03_UrlsViews.views import index, about, hello, add
 from S04_MoviesApp.views import movies_index, movies_about
 from S05_JobsBoardApp.views import jobs_index, jobs_detail
-from S07_LinksApp.views import links_index, links_redirect
+from S07_LinksApp.views import links_index, links_redirect, links_create
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -37,5 +37,6 @@ urlpatterns = [
     path(route="jobs/<int:job_id>/", view=jobs_detail, name="jobs-detail"),
     ### links app urls
     path(route="links/", view=links_index, name="links-home"),
+    path(route="links/create/", view=links_create, name="links-create"),
     path(route="links/<str:link_slug>/", view=links_redirect, name="links-redirect"),
 ]

@@ -43,3 +43,18 @@ def links_redirect(request, link_slug):
     link.click()
     # redirecting to original website
     return redirect(link.url)
+
+### links app create link form view function ###########################################################################
+def links_create(request):
+    """
+    Renders the create link form of Links application.
+
+    Args:
+    - request: http request object
+
+    Returns:
+    - links app create link form
+    """
+
+    # rendering and returning links app create link form
+    return render(request=request, template_name="S07_LinksApp/create.html", context={})
