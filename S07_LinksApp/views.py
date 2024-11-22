@@ -56,5 +56,7 @@ def links_create(request):
     - links app create link form
     """
 
+    ### retrieving post data
+    data = request.POST
     # rendering and returning links app create link form
-    return render(request=request, template_name="S07_LinksApp/create.html", context={})
+    return render(request=request, template_name="S07_LinksApp/create.html", context={"data":data})
