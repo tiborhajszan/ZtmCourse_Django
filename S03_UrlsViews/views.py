@@ -1,9 +1,9 @@
-from django.shortcuts import HttpResponse
+from django.shortcuts import HttpResponse, render
 
 # Create your views here.
 
 def index(request):
-    return HttpResponse("Hello World!")
+    return render(request=request, template_name="S03_UrlsViews/index.html")
 
 def about(request):
     return HttpResponse("My name is Tibor Hajszan<br>Aspiring Django Developer")

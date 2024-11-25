@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "S04_MoviesApp",
     "S05_JobsBoardApp",
     "S07_LinksApp",
+    "S08_LinkPlantApp",
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
