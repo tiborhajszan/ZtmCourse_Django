@@ -39,12 +39,18 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     ### humanize filters
     "django.contrib.humanize",
+    ### 3rd party apps
+    "crispy_forms",
+    "crispy_tailwind",
     ### local apps
     "S03_UrlsViews",
     "S04_MoviesApp",
     "S05_JobsBoardApp",
     "S07_LinksApp",
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+CRISPY_TEMPLATE_PACK = "tailwind"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

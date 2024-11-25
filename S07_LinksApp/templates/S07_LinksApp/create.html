@@ -1,17 +1,20 @@
 
 {% extends "S07_LinksApp/_base.html" %}
+{% load tailwind_filters %}
 {% block content %}
 
-<form action="" method="POST">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Create">
-</form>
+<div class="w-1/2 mx-auto">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input class="rounded-lg pt-2 pb-2.5 px-4 bg-green-300 hover:cursor-pointer" type="submit" value="Create">
+    </form>
+</div>
 
-<hr class="my-4">
+<hr class="mt-8 mb-7">
 
 {% if data %}
-    <p>{{ data }}</p>
+    <p class="text-center">{{ data }}</p>
 {% endif %}
 
 {% endblock content %}

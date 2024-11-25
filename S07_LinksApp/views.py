@@ -65,9 +65,9 @@ def links_create(request):
             return redirect(reverse("links-home"))
         else:
             form = LinkForm()
-            data = "Form is not valid!"
+            data = "Entered data is not valid. Try again!"
     else:
         form = LinkForm()
-        data = "Please submit data!"
+        data = "Please enter your data!"
     # rendering and returning webform
     return render(request=request, template_name="S07_LinksApp/create.html", context={"form":form, "data":data})
