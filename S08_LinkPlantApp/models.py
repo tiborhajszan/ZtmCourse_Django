@@ -2,7 +2,7 @@
 from django.db import models
 
 # Create your models here.
-class ProfileModel(models.Model):
+class Profile(models.Model):
 
     BG_CHOICES = (
         ("blue", "Blue"),
@@ -16,7 +16,10 @@ class ProfileModel(models.Model):
     def __str__(self):
         return self.name
 
-class LinkModel08(models.Model):
+class S08Link(models.Model):
     text = models.CharField(max_length=100)
     url = models.URLField()
-    profile = models.ForeignKey(to=ProfileModel, on_delete=models.CASCADE, related_name='links')
+    profile = models.ForeignKey(to=Profile, on_delete=models.CASCADE, related_name='links')
+
+    def __str__(self):
+        return self.text

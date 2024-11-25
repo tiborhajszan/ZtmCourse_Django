@@ -23,7 +23,8 @@ from S05_JobsBoardApp.views import jobs_index, jobs_detail
 from S07_LinksApp.views import links_index, links_redirect, links_create
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    ### site admin url
+    path(route="admin/", view=admin.site.urls),
 
     path("", index),
     path("about/", about),
