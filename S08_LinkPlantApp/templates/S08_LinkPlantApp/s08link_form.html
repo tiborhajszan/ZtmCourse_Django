@@ -1,0 +1,15 @@
+
+{% extends "S08_LinkPlantApp/_base.html" %}
+{% block content %}
+
+<h1 class="text-4xl">Specify New Link</h1>
+
+<hr class="my-4">
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Save Link" class="rounded-lg pt-2 pb-2.5 px-6 bg-blue-200 hover:bg-blue-300 hover:cursor-pointer">
+</form>
+
+{% endblock content %}
