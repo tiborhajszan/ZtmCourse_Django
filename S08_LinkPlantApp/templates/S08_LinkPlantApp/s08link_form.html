@@ -1,5 +1,6 @@
 
 {% extends "S08_LinkPlantApp/_base.html" %}
+{% load tailwind_filters %}
 {% block content %}
 
 <h1 class="text-4xl">Specify New Link</h1>
@@ -8,7 +9,7 @@
 
 <form action="" method="POST">
     {% csrf_token %}
-    {{ form }}
+    {{ form|crispy }}
     <input type="submit" value="Save Link" class="rounded-lg pt-2 pb-2.5 px-6 bg-blue-200 hover:bg-blue-300 hover:cursor-pointer">
 </form>
 
