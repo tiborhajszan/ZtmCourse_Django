@@ -1,7 +1,7 @@
 
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import S08Link
 
 # Create your views here.
@@ -16,4 +16,8 @@ class LinkCreate(CreateView):
 class LinkUpdate(UpdateView):
     model = S08Link
     fields = ["text", "url"]
+    success_url = reverse_lazy("link-list")
+
+class LinkDelete(DeleteView):
+    model = S08Link
     success_url = reverse_lazy("link-list")

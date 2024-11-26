@@ -56,8 +56,8 @@
             </td>
 
             {# edit and delete links #}
-            <td class="px-4 py-3 underline text-blue-600"><a href="{% url 'link-list' %}">Edit</a></td>
-            <td class="px-4 py-3 underline text-red-600"><a href="{% url 'link-list' %}">Delete</a></td>
+            <td class="px-4 py-3 underline text-blue-600"><a href="{% url 'link-update' link.id %}">Edit</a></td>
+            <td class="px-4 py-3 underline text-red-600"><a href="{% url 'link-delete' link.id %}">Delete</a></td>
         
         {# table body ends #}
         </tr>
@@ -68,7 +68,7 @@
     </table>
 
     {# add link button #}
-    <a href="{% url 'link-list' %}">
+    <a href="{% url 'link-create' %}">
     <p class="mt-6 py-2 w-full border rounded border-gray-400 text-center text-gray-500 hover:cursor-pointer hover:bg-gray-100 hover:border-gray-500">Add New +</p>
     </a>
 
