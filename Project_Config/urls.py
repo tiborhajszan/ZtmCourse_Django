@@ -21,7 +21,7 @@ from S03_UrlsViews.views import index, about, hello, add
 from S04_MoviesApp.views import movies_index, movies_about
 from S05_JobsBoardApp.views import jobs_index, jobs_detail
 from S07_LinksApp.views import links_index, links_redirect, links_create
-from S08_LinkPlantApp.views import LinkList, LinkCreate
+from S08_LinkPlantApp.views import LinkList, LinkCreate, LinkUpdate
 
 urlpatterns = [
     ### site admin url
@@ -44,4 +44,5 @@ urlpatterns = [
     ### link plant app urls
     path(route="plant/", view=LinkList.as_view(), name="link-list"),
     path(route="plant/create/", view=LinkCreate.as_view(), name="link-create"),
+    path(route="plant/<int:pk>/update/", view=LinkUpdate.as_view(), name="link-update"),
 ]
