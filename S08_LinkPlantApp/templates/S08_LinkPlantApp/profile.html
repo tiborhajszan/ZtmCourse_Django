@@ -1,0 +1,50 @@
+{# ################################################################################################################## #}
+{# Django Bootcamp :: Section 08 #}
+{# Link Plant Application :: Profile Page Template #}
+{# ################################################################################################################## #}
+
+{# DOCTYPE declaration, webpage language #}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    {# webpage title #}
+    <title>LinkPlant Profile</title>
+
+    {# internet explorer compatibility, initial zoom level, character encoding #}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    
+    {# importing tailwind css #}
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-{{ profile.bg_color }}-300">
+
+    {# content container #}
+    <div class="text-center sm:w-3/4 mx-auto mt-12">
+
+        {# heading: profile name #}
+        <h1 class="text-4xl font-semibold underline underline-offset-2 my-12">{{ profile.name }}</h1>
+
+        {# links list #}
+        {% for link in links %}
+        <a href="{{ link.url }}" target="_blank" class="block mx-auto w-full sm:w-1/3 py-3 border-2 border-black hover:bg-black my-4 text-xl hover:text-white">
+        <button>{{ link.text }}</button>
+        </a>
+        {% endfor %}
+
+        {# footer #}
+        <a href="{% url 'link-list' %}" class="block sm:w-1/4 mx-auto mt-12">
+        <p class="bg-black text-white py-2">Made With 🌱 LinkPlant</p>
+        </a>
+
+    {# content container ends #}
+    </div>
+
+</body>
+
+</html>
